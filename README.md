@@ -29,8 +29,9 @@
    `src/local` и чинит горячие клавиши Studio.
 3. Создать окружение Python и поставить распознавание речи:
    `python -m venv .venv` и
-   `.venv\Scripts\python.exe -m pip install faster-whisper==1.2.1 "opencv-python-headless>=4.8,<5"`
-   (OpenCV нужен, чтобы кадр камеры строился по лицу).
+   `.venv\Scripts\python.exe -m pip install faster-whisper==1.2.1 av==18.1.0 "opencv-python-headless>=4.8,<5"`
+   (OpenCV нужен, чтобы кадр камеры строился по лицу; `av` закреплён на 18.1.0:
+   с PyAV 19 faster-whisper 1.2.1 падает при распознавании с ошибкой `metadata_errors`).
 4. Запустить студию: `npm run dev`.
 
 Установка нужна один раз. Дальше в новом чате достаточно открыть ту же папку

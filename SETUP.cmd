@@ -6,7 +6,8 @@ where ffmpeg >nul 2>nul || (echo Install FFmpeg and add it to PATH first. & paus
 call npm install
 if errorlevel 1 (pause & exit /b 1)
 python -m venv .venv
-.venv\Scripts\python.exe -m pip install faster-whisper==1.2.1 "opencv-python-headless>=4.8,<5"
+rem av is pinned: PyAV 19 breaks faster-whisper 1.2.1 (metadata_errors)
+.venv\Scripts\python.exe -m pip install faster-whisper==1.2.1 av==18.1.0 "opencv-python-headless>=4.8,<5"
 if errorlevel 1 (pause & exit /b 1)
 echo Ready. Drop a video onto IMPORT-VIDEO.cmd, then open START-STUDIO.cmd.
 pause
